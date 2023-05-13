@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
 const port = 3000;
-
-// Sinalizar uso de Json
-app.use(express.json())
+app.use(cors());
+  // Sinalizar uso de Json
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("Hello Word!");
@@ -151,6 +151,7 @@ app.get("/itens/:modelo", (req, res) => {
   const modelo = req.params.modelo;
 
   const item = itens.data.filter(function (a) {
+
     return a.modelo === modelo;
   });
   res.send(item);
